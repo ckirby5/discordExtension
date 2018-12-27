@@ -64,6 +64,28 @@ function addHelpName() {
     }
 }
 
+function addGiftName() {
+    var gift = document.getElementsByName("Gift");
+    var checkGift = setTimeout(addGiftName, 10000);
+    if ($(gift).parent().text() == '') {
+        $(gift).parent().append("Gift").addClass("readerButtons");
+    } else {
+        checkGift;
+    }
+}
+
+function addEmojiText() {
+    var emoji = document.getElementsByClassName("emojiButton-3uL3Aw");
+    var checkEmoji = setTimeout(addEmojiText, 10000);
+    if ($(emoji).children().children().text() == '') {
+        $(emoji).children().children().append("Emoji").addClass("readerButtons");
+    } else if (!$(emoji).children().children().hasClass("readerButtons")) {
+        $(emoji).children().children().addClass("readerButtons");
+    } else {
+        checkEmoji;
+    }
+}
+
 // Private Voice Chat Buttons
 
 function addScreenShare() {
@@ -106,15 +128,52 @@ function addUserSettings() {
     }
 }
 
+// Conversation(s) window buttons
+
+function addUnmuteButton() {
+    var unmute = $("[aria-label=Unmute]");
+    var checkUnmuteButton = setTimeout(addUnmuteButton, 10000);
+    if (unmute.text() == '') {
+        unmute.append("Unmute/Mute Microphone").addClass("readerButtons");
+    } else {
+        checkUnmuteButton;
+    }
+}
+
+function addDeafenButton() {
+    var deafen = $("[aria-label=Deafen]");
+    var checkDeafenButton = setTimeout(addDeafenButton, 10000);
+    if (deafen.text() == '') {
+        deafen.append("Toggle Audio and Microphone on/off").addClass("readerButtons");
+    } else {
+        checkDeafenButton;
+    }
+}
+
+function addUserSettingsButton() {
+    var settings = $("[aria-label=User Settings]");
+    var checkUserSettingsButton = setTimeout(addUserSettingsButton, 10000);
+    if (settings.text() == '') {
+        settings.append("User Settings").addClass("readerButtons");
+    } else {
+        checkUserSettingsButton;
+    }
+}
+
 $(document).ready(function(){
     addCameraName();
-    addScreenShare();
-    addWebcam();
-    addMicMute();
-    addUserSettings();
     addPhoneName();
     addPinName();
     addFriendsName();
     addMentionName();
     addHelpName();
+    addGiftName();
+    addEmojiText();
+    addScreenShare();
+    addWebcam();
+    addMicMute();
+    addUserSettings();
+    addUnmuteButton();
+    addDeafenButton();
+    addUserSettingsButton();
 });
